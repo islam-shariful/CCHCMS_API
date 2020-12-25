@@ -7,7 +7,7 @@ using System.Web;
 
 namespace CCHCMS_API.Repositories
 {
-    public class PostRepository : Repository<Doctor>
+    public class DoctorRepository : Repository<Doctor>
     {
     }
 }
