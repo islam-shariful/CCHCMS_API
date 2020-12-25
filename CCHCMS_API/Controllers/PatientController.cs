@@ -22,7 +22,7 @@ namespace CCHCMS_API.Controllers
             {
                 return StatusCode(HttpStatusCode.NotFound);
             }else
-            return Ok(patients);
+                return Ok(patients);
         }
         [Route("{id}", Name = "GetPatient")]
         [HttpGet]
@@ -34,7 +34,7 @@ namespace CCHCMS_API.Controllers
                 return StatusCode(HttpStatusCode.NotFound);
             }
             else
-            return Ok(patient);
+                return Ok(patient);
         }
         [Route("", Name = "PostPatient")]
         [HttpPost]
