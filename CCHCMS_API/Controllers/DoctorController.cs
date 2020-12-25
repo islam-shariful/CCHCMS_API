@@ -17,13 +17,23 @@ namespace CCHCMS_API.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            return Ok(doctorRepository.GetAll());
+            var doctors = doctorRepository.GetAll();
+            if (doctors == null)
+            {
+                return StatusCode(HttpStatusCode.NotFound);
+            }
+            return Ok(doctors);
         }
         [Route("{id}", Name = "GetDoctor")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
-            return Ok(doctorRepository.Get(id));
+            var doctor = doctorRepository.Get(id);
+            if (doctor == null)
+            {
+                return StatusCode(HttpStatusCode.NotFound);
+            }
+            return Ok(doctor);
         }
         [Route("", Name = "PostDoctor")]
         [HttpPost]
