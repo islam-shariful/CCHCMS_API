@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -129,9 +130,11 @@
     <Compile Include="Models\DoctorMetadata.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\PartialDoctor.cs" />
+    <Compile Include="Models\PartialPatient.cs" />
     <Compile Include="Models\Patient.cs">
       <DependentUpon>CCHCMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PatientMetadata.cs" />
     <Compile Include="Models\Prescription.cs">
       <DependentUpon>CCHCMSModel.tt</DependentUpon>
     </Compile>
