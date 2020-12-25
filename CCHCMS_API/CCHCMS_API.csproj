@@ -108,6 +108,7 @@
     <Compile Include="Controllers\PatientController.cs" />
     <Compile Include="Controllers\PrescriptionController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserInformationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -135,6 +136,7 @@
     <Compile Include="Models\PartialPatient.cs" />
     <Compile Include="Models\PartialPrescription.cs" />
     <Compile Include="Models\PartialUser.cs" />
+    <Compile Include="Models\PartialUserInformation.cs" />
     <Compile Include="Models\Patient.cs">
       <DependentUpon>CCHCMSModel.tt</DependentUpon>
     </Compile>
