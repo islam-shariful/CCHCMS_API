@@ -1,4 +1,5 @@
-﻿using CCHCMS_API.Models;
+﻿using CCHCMS_API.Attributes;
+using CCHCMS_API.Models;
 using CCHCMS_API.Repositories;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Web.Http;
 
 namespace CCHCMS_API.Controllers
 {
-    [RoutePrefix("api/users")]
+    [RoutePrefix("api/users"), BasicAuthentication]
     public class UserController : ApiController
     {
         UserRepository userRepository = new UserRepository();

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using CCHCMS_API.Attributes;
 using CCHCMS_API.Models;
 using CCHCMS_API.Repositories;
+using System.Net;
+using System.Web.Http;
 
 namespace CCHCMS_API.Controllers
 {
-    [RoutePrefix("api/doctors")]
+    [RoutePrefix("api/doctors"), BasicAuthentication]
     public class DoctorController : ApiController
     {
         DoctorRepository doctorRepository = new DoctorRepository();
