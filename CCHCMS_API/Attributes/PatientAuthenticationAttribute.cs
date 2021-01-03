@@ -12,7 +12,7 @@ using System.Web.Http.Filters;
 
 namespace CCHCMS_API.Attributes
 {
-    public class BasicAuthenticationAttribute : AuthorizationFilterAttribute
+    public class PatientAuthenticationAttribute : AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
@@ -30,9 +30,12 @@ namespace CCHCMS_API.Attributes
                 string password = splittedText[1];
                 if (username == "admin" && password == "123")
                 {
-                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username),null);
+                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), null);
                 }
-
+                else if (username == "patient" && password == "123")
+                {
+                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), null);
+                }
                 else
                 {
                     actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
@@ -42,6 +45,5 @@ namespace CCHCMS_API.Attributes
 
             }
         }
-
     }
 }

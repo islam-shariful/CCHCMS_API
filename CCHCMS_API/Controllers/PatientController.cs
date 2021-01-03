@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace CCHCMS_API.Controllers
 {
-    [RoutePrefix("api/patients"), BasicAuthentication]
+    [RoutePrefix("api/patients"), PatientAuthentication]
     public class PatientController : ApiController
     {
         PatientRepository patientRepository = new PatientRepository();
