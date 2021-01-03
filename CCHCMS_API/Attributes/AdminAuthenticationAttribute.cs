@@ -32,7 +32,7 @@ namespace CCHCMS_API.Attributes
                 string userId = splittedText[0];
                 string password = splittedText[1];
                 var userInfo = userRepository.Get(Int32.Parse(userId));
-                if (password == userInfo.Password)
+                if (password == userInfo.Password && userInfo.Role == "admin")
                 {
                     Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(userId), null);
                 }

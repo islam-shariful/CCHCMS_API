@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CCHCMS_API.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -23,18 +24,21 @@ namespace CCHCMS_API.Attributes
             }
             else
             {
+                UserRepository userRepository = new UserRepository();
+
                 string encodedString = actionContext.Request.Headers.Authorization.Parameter;
                 string decodedString = Encoding.UTF8.GetString(Convert.FromBase64String(encodedString));
                 string[] splittedText = decodedString.Split(new char[] { ':' });
-                string username = splittedText[0];
+                string userId = splittedText[0];
                 string password = splittedText[1];
-                if (username == "admin" && password == "123")
+                var userInfo = userRepository.Get(Int32.Parse(userId));
+                if (password == userInfo.Password && userInfo.Role == "admin")
                 {
-                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username),null);
+                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(userId), null);
                 }
-                else if (username == "doctor" && password == "123")
+                else if(password == userInfo.Password && userInfo.Role == "doctor")
                 {
-                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(username), null);
+                    Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(userId), null);
                 }
                 else
                 {
