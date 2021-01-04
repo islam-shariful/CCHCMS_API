@@ -42,9 +42,15 @@ namespace CCHCMS_API.Controllers
         [HttpPost]
         public IHttpActionResult Post(User user)
         {
-            userRepository.Insert(user);
-            string uri = Url.Link("GetUser", new { id = user.Id });
-            return Created(uri, user);
+            if (ModelState.IsValid)
+            {
+                userRepository.Insert(user);
+                string uri = Url.Link("GetUser", new { id = user.Id });
+                return Created(uri, user);
+            }
+            {
+                return StatusCode(HttpStatusCode.BadRequest);
+            }
         }
         [Route("{id}", Name = "UpdateUser")]
         [HttpPut]

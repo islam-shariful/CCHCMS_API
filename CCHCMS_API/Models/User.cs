@@ -11,7 +11,8 @@ namespace CCHCMS_API.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,7 @@ namespace CCHCMS_API.Models
         }
     
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }

@@ -11,7 +11,8 @@ namespace CCHCMS_API.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Doctor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,7 @@ namespace CCHCMS_API.Models
     
         public int Id { get; set; }
         public int HospitalId { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Degree { get; set; }
         public string Speciality { get; set; }
