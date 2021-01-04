@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\AdminAuthenticationAttribute.cs" />
+    <Compile Include="Attributes\BasicAuthenticationAttribute.cs" />
     <Compile Include="Attributes\DoctorAuthenticationAttribute.cs" />
     <Compile Include="Attributes\PatientAuthenticationAttribute.cs" />
     <Compile Include="Controllers\DoctorController.cs" />

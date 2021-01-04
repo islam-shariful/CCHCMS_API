@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace CCHCMS_API.Controllers
 {
-    [RoutePrefix("api/users"), AdminAuthentication]
+    [RoutePrefix("api/users"), BasicAuthenticationAttribute]
     public class UserController : ApiController
     {
         UserRepository userRepository = new UserRepository();
